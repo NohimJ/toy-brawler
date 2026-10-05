@@ -31,7 +31,6 @@ using EntityId = std::uint32_t;
 template <typename T>
 class ComponentArray {
 public:
-    std::vector<size_t> sparse_;
     void Insert(EntityId id, T component){
         if (id >= sparse_.size()){
             sparse_.resize(id+1, NO_COMPONENT);
@@ -75,9 +74,9 @@ public:
 private:
     static constexpr size_t NO_COMPONENT = SIZE_MAX;
 
-    std::vector<T>        dense_;            // the actual component data, packed
-    std::vector<EntityId>  dense_to_entity_; // dense_to_entity_[i] = which entity owns dense_[i]
-    std::vector<size_t>   sparse_;           // sparse_[entity_id] = index into dense_, or NO_COMPONENT
+    std::vector<T> dense_;          
+    std::vector<EntityId> dense_to_entity_; 
+    std::vector<size_t> sparse_;      
 };
 
-} // namespace engine
+} 
