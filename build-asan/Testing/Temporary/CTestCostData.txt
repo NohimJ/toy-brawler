@@ -1,0 +1,9 @@
+EntityManager.CreateEntityReturnsIncreasingIds 1 0.0828405
+ComponentArray.InsertThenGetReturnsCorrectValue 1 0.0847864
+ComponentArray.MultipleEntitiesHaveIndependentValues 1 0.0866413
+ComponentArray.InsertThenRemoveValue 1 0.278961
+ComponentArray.RemoveFromMiddlePreservesOtherEntities 1 0.0872841
+ComponentArray.RemoveLastElementDoesNotCrash 1 0.0855955
+ComponentArray.RemoveNonExistingEntity 1 0.0818734
+JobSystem.ConstructsAndDestructsCleanly 1 0.0867539
+---

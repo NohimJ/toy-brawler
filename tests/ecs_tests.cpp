@@ -84,3 +84,56 @@ TEST(ComponentArray, RemoveLastElementDoesNotCrash) {
     EXPECT_EQ(components.Get(5).value, 100);
     EXPECT_EQ(components.Get(2).value, 200);
 }
+
+TEST(ComponentArray, RemoveNonExistingEntity) {
+    engine::ComponentArray<TestComponent> components;
+
+    components.Insert(1, TestComponent{100});
+    components.Insert(5, TestComponent{200});
+
+    components.Remove(4);  
+    components.Remove(999); //check both in range and out of range
+
+    EXPECT_EQ(components.Get(1).value, 100);
+    EXPECT_EQ(components.Get(5).value, 200);
+}
+
+TEST(EntityManager, CreateThenTransformDestroy) {
+    engine::EntityManager manager;
+
+    const auto id = manager.CreateEntity();
+    manager.Transforms().Insert(id, engine::Transform{});
+
+    manager.DestroyEntity(id);
+
+    EXPECT_DEATH(manager.Transforms().Get(id), "");  // Debug build only
+}
+
+TEST(EntityManager, DestroyEntityRemovesItsTransform) {
+    engine::EntityManager manager;
+
+    const auto id = manager.CreateEntity();
+    const auto other = manager.CreateEntity();
+
+    manager.Transforms().Insert(id, engine::Transform{engine::Vec3{1.0f}});
+    manager.Transforms().Insert(other, engine::Transform{engine::Vec3{2.0f}});
+
+    manager.DestroyEntity(id);
+
+    EXPECT_DEATH(manager.Transforms().Get(id), ""); 
+    EXPECT_EQ(manager.Transforms().Get(other).position.x, 2.0f);
+}
+
+TEST(EntityManager, DestroyedIdIsReused) {
+    engine::EntityManager manager;
+
+    const auto a = manager.CreateEntity();
+    const auto b = manager.CreateEntity();
+
+    manager.DestroyEntity(a);
+
+    const auto c = manager.CreateEntity();
+
+    EXPECT_EQ(c, a);  // recycled from the free-list, not a fresh ID
+    EXPECT_NE(c, b);  // an ID still in use must never be handed out again
+}

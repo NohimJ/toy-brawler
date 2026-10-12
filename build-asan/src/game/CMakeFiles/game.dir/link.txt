@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgame.a CMakeFiles/game.dir/Kiryu.cpp.o CMakeFiles/game.dir/Enemy.cpp.o CMakeFiles/game.dir/WaveSpawner.cpp.o CMakeFiles/game.dir/CombatSystem.cpp.o
+/usr/bin/ranlib libgame.a

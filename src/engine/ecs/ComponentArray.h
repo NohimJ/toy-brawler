@@ -42,6 +42,10 @@ public:
     }
 
     void Remove(EntityId id){
+
+        if (id >= sparse_.size() || sparse_[id] == NO_COMPONENT) {
+            return;
+}
         size_t i = sparse_[id];
 
 

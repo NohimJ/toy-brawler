@@ -1,0 +1,5 @@
+if(EXISTS "/Users/nohimjayasinghe/Downloads/yakuza-toy/build-asan/tests/engine_tests[1]_tests.cmake")
+  include("/Users/nohimjayasinghe/Downloads/yakuza-toy/build-asan/tests/engine_tests[1]_tests.cmake")
+else()
+  add_test(engine_tests_NOT_BUILT engine_tests_NOT_BUILT)
+endif()

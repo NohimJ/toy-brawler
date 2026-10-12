@@ -1,0 +1,64 @@
+{
+  "tests": 8,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "EntityManager",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "CreateEntityReturnsIncreasingIds",
+          "file": "\/Users\/nohimjayasinghe\/Downloads\/yakuza-toy\/tests\/ecs_tests.cpp",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "name": "ComponentArray",
+      "tests": 6,
+      "testsuite": [
+        {
+          "name": "InsertThenGetReturnsCorrectValue",
+          "file": "\/Users\/nohimjayasinghe\/Downloads\/yakuza-toy\/tests\/ecs_tests.cpp",
+          "line": 20
+        },
+        {
+          "name": "MultipleEntitiesHaveIndependentValues",
+          "file": "\/Users\/nohimjayasinghe\/Downloads\/yakuza-toy\/tests\/ecs_tests.cpp",
+          "line": 29
+        },
+        {
+          "name": "InsertThenRemoveValue",
+          "file": "\/Users\/nohimjayasinghe\/Downloads\/yakuza-toy\/tests\/ecs_tests.cpp",
+          "line": 49
+        },
+        {
+          "name": "RemoveFromMiddlePreservesOtherEntities",
+          "file": "\/Users\/nohimjayasinghe\/Downloads\/yakuza-toy\/tests\/ecs_tests.cpp",
+          "line": 59
+        },
+        {
+          "name": "RemoveLastElementDoesNotCrash",
+          "file": "\/Users\/nohimjayasinghe\/Downloads\/yakuza-toy\/tests\/ecs_tests.cpp",
+          "line": 75
+        },
+        {
+          "name": "RemoveNonExistingEntity",
+          "file": "\/Users\/nohimjayasinghe\/Downloads\/yakuza-toy\/tests\/ecs_tests.cpp",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "name": "JobSystem",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "ConstructsAndDestructsCleanly",
+          "file": "\/Users\/nohimjayasinghe\/Downloads\/yakuza-toy\/tests\/jobs_tests.cpp",
+          "line": 11
+        }
+      ]
+    }
+  ]
+}

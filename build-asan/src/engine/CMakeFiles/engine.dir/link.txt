@@ -1,0 +1,2 @@
+/usr/bin/ar qc libengine.a CMakeFiles/engine.dir/core/Application.cpp.o CMakeFiles/engine.dir/core/Window.cpp.o CMakeFiles/engine.dir/ecs/EntityManager.cpp.o CMakeFiles/engine.dir/jobs/JobSystem.cpp.o CMakeFiles/engine.dir/physics/Collision.cpp.o
+/usr/bin/ranlib libengine.a

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ComponentArray.h"
+#include "Components.h"
 
 namespace engine {
 
@@ -8,20 +9,22 @@ namespace engine {
 // instances for this project's small, fixed set of entity kinds
 // (Kiryu, grunt, bruiser, thrown prop - see the plan's note on why a
 // full dynamic archetype system is out of scope here).
-//
-// TODO(you): implement entity ID allocation (a simple free-list of
-// recycled EntityId values is enough) and expose typed accessors, e.g.
-// ComponentArray<Transform>& Transforms(); so systems can grab the dense
-// array they need directly.
+
 class EntityManager {
 public:
     EntityManager();
+    
 
     EntityId CreateEntity();
     void DestroyEntity(EntityId id);
 
+    ComponentArray<Transform>& Transforms() { return transforms_; }
+
 private:
     EntityId next_id_ = 0;
+    std::vector<EntityId> free_ids_;
+
+    ComponentArray<Transform> transforms_;
 };
 
-} // namespace engine
+} 

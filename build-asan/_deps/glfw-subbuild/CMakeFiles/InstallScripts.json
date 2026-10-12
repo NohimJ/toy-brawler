@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/nohimjayasinghe/Downloads/yakuza-toy/build-asan/_deps/glfw-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
