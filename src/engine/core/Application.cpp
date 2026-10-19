@@ -1,4 +1,6 @@
 #include "Application.h"
+#include <cstdio>
+#include <GLFW/glfw3.h>
 
 namespace engine {
 
@@ -8,9 +10,13 @@ Application::Application()
 {}
 
 void Application::Run() {
+    std::printf("OpenGL: %s\n", glGetString(GL_VERSION));
     while (!window_.ShouldClose()) {
         const float dt = clock_.Tick();
         window_.PollEvents();
+
+        glClearColor(0.1f, 0.2f, 0.4f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
 
         RunFrame(dt);
 
